@@ -52,11 +52,19 @@ function setCurrentDate()
     calcCareer();
 }
 
-function calcCareer()
+function calcCareer(position)
 {
     let st = document.getElementById('date-st').value;
     let end = document.getElementById('date-end').value;
     let outputStr = '';
+
+    if (position = 'st' && st.includes('〜')) {
+        let period = st.split('〜');
+        st = period[0];
+        end = period[1];
+        document.getElementById('date-st').value = period[0];
+        document.getElementById('date-end').value = period[1];
+    }
 
     if (st && end) {
         st = st.replace('年', '/').replace('月', '/');
