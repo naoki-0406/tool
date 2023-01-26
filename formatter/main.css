@@ -1,0 +1,51 @@
+.container {
+    margin-top: 10px;
+    background: #c2e4e9;
+    border-radius: 1%;
+    padding: 10px 22px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.career-area {
+    margin-bottom: 10px;
+}
+
+.data-reset {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.career-d {
+    width: 180px;
+}
+
+.career-data {
+    height: 50px;
+    background: #ffffff;
+    margin-top: 10px;
+    margin: 10px 13px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.skill-data-area {
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.format-area {
+    background: #ffffff;
+    height: 500px;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 3px 12px;
+    border: 1px solid #dee2e6;
+    overflow: auto;
+}
