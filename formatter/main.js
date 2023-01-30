@@ -58,8 +58,12 @@ function calcCareer(position)
     let end = document.getElementById('date-end').value;
     let outputStr = '';
 
-    if (position = 'st' && st.includes('〜')) {
-        let period = st.split('〜');
+    if (st.includes('〜')) {
+        st = st.replace('〜', '～')
+    }
+
+    if (position = 'st' && st.includes('～')) {
+        let period = st.split('～');
         st = period[0];
         end = period[1];
         document.getElementById('date-st').value = period[0];
