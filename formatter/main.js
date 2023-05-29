@@ -92,28 +92,30 @@ function calcCareer(position)
     if (st && end) {
         st = st.replace('年', '/').replace('月', '/');
         end = end.replace('年', '/').replace('月', '/');
+        console.log(st);
+        console.log(end);
         st = new Date(st);
         end = new Date(end);
+        end.setMonth(end.getMonth() + 1)
         
         if (!Number.isNaN(st.getTime()) && !Number.isNaN(end.getTime())) {
-    
+
             const diff = end - st;
+            console.log(diff);
             const year = Math.floor(diff / 1000 / 60 / 60 / 24 / 30 / 12);
             const month = Math.floor(diff / 1000 / 60 / 60 / 24 / 30) % 12;
+            console.log(year);
+            console.log(month);
 
             if (year !== 0) {
                 outputStr += `${year}年`;
             }
 
             if (month !== 0) {
-                outputStr += `${month}ヶ月`;
+                outputStr += `${(month)}ヶ月`;
             }
 
-            if (year == 0 && month == 0) {
-                outputStr += "1ヶ月未満";
-            }
-
-            if (diff < 0) {
+            if (diff <= 0) {
                 outputStr = '<span style="color:red;">無効な範囲です</span>';
             }
         }
