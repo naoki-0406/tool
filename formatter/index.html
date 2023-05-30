@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container color-b">
         <div>
             <button type="button" class="btn btn-danger data-reset" onclick="resetData()">reset</button>
         </div>
@@ -37,6 +37,47 @@
         <textarea class="skill-data-area form-control" id="skill-data" onblur="formatter(this.value)"></textarea>
         <label class="form-label">フォーマット</label>
         <div class="format-area" id="format-data"></div>
+    </div>
+    <div class="container color-r">
+        <div class="career-area row">
+            <div class="row">
+                <div class="col">
+                    <label class="form-label">営業可能単価</label>
+                    <input type="text" class="form-control career-d" id="sales-unit-price">
+                </div>
+                <div class="col">
+                    <label class="form-label">希望年収</label>
+                    <input type="text" class="form-control career-d" id="desired-salary">
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-secondary calc" onclick="calc()">calc</button>
+                </div>
+            </div>
+            <div class="row">
+                <table class="table calc-table table-striped">
+                    <tbody>
+                      <tr>
+                        <th scope="row">年間売上見込み</th>
+                        <td><span id="year-earnings" class="calc-result"></span><span class="cur-unit">万円</span></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">年間コスト</th>
+                        <td><span id="year-cost" class="calc-result"></span><span class="cur-unit">万円</span></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">年間粗利</th>
+                        <td><span id="year-gp" class="calc-result"></span><span class="cur-unit">万円</span></td>
+                      </tr>
+                    </tbody>
+                </table>
+                <div class="col">
+                    <div class="clear-btn-area">
+                        <button type="button" class="btn btn-danger all-clear" onclick="clearCostData()">ALL-Clear</button>
+                        <button type="button" class="btn btn-secondary clear" onclick="calcResultData()">Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="main.js"></script>
 </body>

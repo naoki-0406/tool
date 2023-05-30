@@ -7,7 +7,48 @@ function resetData()
     document.getElementById('date-end').value = null;
     document.getElementById('career-data').innerHTML = null;
     document.getElementById('skill-data').value = null;
-    document.getElementById('format-data').innerHTML = null;    
+    document.getElementById('format-data').innerHTML = null;  
+    clearCostData();  
+}
+
+function clearCostData()
+{
+    document.getElementById('sales-unit-price').value = null;
+    document.getElementById('desired-salary').value = null;
+    calcResultData();
+     
+}
+
+function calcResultData()
+{
+    document.getElementById('year-earnings').innerHTML = null;    
+    document.getElementById('year-cost').innerHTML = null;    
+    document.getElementById('year-gp').innerHTML = null;  
+}
+
+function calc()
+{
+    calcResultData();
+    let sales_unit_price = document.getElementById('sales-unit-price').value;
+    let desired_salary = document.getElementById('desired-salary').value;
+    
+    if (sales_unit_price && desired_salary) {
+        if (!Number.isNaN(sales_unit_price) && !Number.isNaN(desired_salary)) {
+            let year_earnings = (sales_unit_price*12);
+            let year_cost = (desired_salary*1.3);
+            document.getElementById('year-earnings').innerHTML = year_earnings;    
+            document.getElementById('year-cost').innerHTML = year_cost;   
+            let dom_year_gp = document.getElementById('year-gp'); 
+            let year_gp = (year_earnings-year_cost);
+
+            dom_year_gp.style.color = '#000000';
+            dom_year_gp.innerHTML = year_gp;
+            if (year_gp < 0) {
+                dom_year_gp.style.color = '#bb2d3b';
+            }
+        }
+    }
+
 }
 
 function formatter(data)
@@ -92,8 +133,6 @@ function calcCareer(position)
     if (st && end) {
         st = st.replace('年', '/').replace('月', '/');
         end = end.replace('年', '/').replace('月', '/');
-        console.log(st);
-        console.log(end);
         st = new Date(st);
         end = new Date(end);
         end.setMonth(end.getMonth() + 1)

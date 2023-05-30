@@ -1,8 +1,15 @@
 .container {
     margin-top: 10px;
-    background: #c2e4e9;
     border-radius: 1%;
     padding: 10px 22px;
+}
+
+.color-b {
+    background: #c2e4e9;
+}
+
+.color-r {
+    background: #ead1dc;
 }
 
 .form-label {
@@ -42,10 +49,57 @@
 
 .format-area {
     background: #ffffff;
-    height: 500px;
+    height: 250px;
     width: 100%;
     margin-bottom: 10px;
     padding: 3px 12px;
     border: 1px solid #dee2e6;
     overflow: auto;
 }
+
+.btn.calc {
+    margin-top: 31px;
+}
+
+div:has(>.clear-btn-area) {
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+
+.clear-btn-area {
+    padding-top: 13px;
+}
+
+.btn.clear,
+.btn.all-clear {
+    width: 135px;
+    height: 60px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.calc-table {
+    width: 300px;
+    margin: 15px 0px 0px 15px;
+}
+
+.calc-table tr {
+    vertical-align: middle;
+    height: 47px;
+}
+
+.cur-unit {
+    font-weight: bold;
+}
+
+.calc-result {
+    display: inline-block;
+    width: 40px;
+    font-weight: bold;
+    font-size: 20px;
+    text-align:right;
+    margin-right: 3px;
+}
+
+
