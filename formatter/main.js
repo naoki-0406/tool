@@ -1,5 +1,5 @@
-
-    
+(window.onload = function() {
+})();
 
 function resetData()
 {
@@ -26,6 +26,29 @@ function calcResultData()
     document.getElementById('year-gp').innerHTML = null;  
 }
 
+function calcYearCost(desired_salary)
+{
+    // 年間交通費（12万）
+    let travel_costs = 12;
+
+    // 年間家財保険料（2万）
+    let home_insurance = 2;
+    
+    // 更新費（24万:家賃12万の2ヶ月分）
+    let renewal_fee = 24;
+
+    // 固定コスト合計
+    let fixed_cost = (travel_costs+home_insurance+renewal_fee);
+
+    // 社会保険料
+    let social_insurance = (desired_salary*0.15);
+
+    // 想定残業代
+    let overtime_pay = (desired_salary*0.1);
+
+    return (Number(desired_salary)+social_insurance+overtime_pay+fixed_cost);
+}
+
 function calc()
 {
     calcResultData();
@@ -35,7 +58,7 @@ function calc()
     if (sales_unit_price && desired_salary) {
         if (!Number.isNaN(sales_unit_price) && !Number.isNaN(desired_salary)) {
             let year_earnings = (sales_unit_price*12);
-            let year_cost = (desired_salary*1.3);
+            let year_cost = calcYearCost(desired_salary);
             document.getElementById('year-earnings').innerHTML = year_earnings;    
             document.getElementById('year-cost').innerHTML = year_cost;   
             let dom_year_gp = document.getElementById('year-gp'); 
