@@ -57,15 +57,15 @@ function calc()
     
     if (sales_unit_price && desired_salary) {
         if (!Number.isNaN(sales_unit_price) && !Number.isNaN(desired_salary)) {
-            let year_earnings = (sales_unit_price*12);
-            let year_cost = calcYearCost(desired_salary);
+            let year_earnings = Math.floor((sales_unit_price*12));
+            let year_cost = Math.floor(calcYearCost(desired_salary));
             document.getElementById('year-earnings').innerHTML = year_earnings;    
             document.getElementById('year-cost').innerHTML = year_cost;   
             let dom_year_gp = document.getElementById('year-gp'); 
             let year_gp = (year_earnings-year_cost);
 
             dom_year_gp.style.color = '#000000';
-            dom_year_gp.innerHTML = year_gp;
+            dom_year_gp.innerHTML = Math.floor(year_gp);
             if (year_gp < 0) {
                 dom_year_gp.style.color = '#bb2d3b';
             }
